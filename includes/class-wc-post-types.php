@@ -4,7 +4,7 @@
  *
  * Registers post types and taxonomies.
  *
- * @package WooCommerce/Classes/Products
+ * @package WooCommerce\Classes\Products
  * @version 2.5.0
  */
 
@@ -403,7 +403,7 @@ class WC_Post_Types {
 					'map_meta_cap'        => true,
 					'publicly_queryable'  => false,
 					'exclude_from_search' => true,
-					'show_in_menu'        => current_user_can( 'manage_woocommerce' ) ? 'woocommerce' : true,
+					'show_in_menu'        => current_user_can( 'edit_others_shop_orders' ) ? 'woocommerce' : true,
 					'hierarchical'        => false,
 					'show_in_nav_menus'   => false,
 					'rewrite'             => false,
@@ -467,7 +467,7 @@ class WC_Post_Types {
 						'map_meta_cap'        => true,
 						'publicly_queryable'  => false,
 						'exclude_from_search' => true,
-						'show_in_menu'        => current_user_can( 'manage_woocommerce' ) ? 'woocommerce' : true,
+						'show_in_menu'        => current_user_can( 'edit_others_shop_orders' ) ? 'woocommerce' : true,
 						'hierarchical'        => false,
 						'rewrite'             => false,
 						'query_var'           => false,
@@ -489,7 +489,7 @@ class WC_Post_Types {
 	 * @since 4.4.0
 	 * @return bool
 	 */
-	public function updated_term_messages( $messages ) {
+	public static function updated_term_messages( $messages ) {
 		$messages['product_cat'] = array(
 			0 => '',
 			1 => __( 'Category added.', 'woocommerce' ),
